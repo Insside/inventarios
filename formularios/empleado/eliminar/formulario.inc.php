@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ie=new Inventarios_Empleados();
-$empleado=$ie->consultar($validaciones->recibir("empleado"));
+$empleado=$ie->consultar(Request::getValue("empleado"));
 /** Valores **/
 $html="<div class=\"i100x100_eliminar\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Eliminar Empleado ".$empleado['empleado'].".</b><br>";

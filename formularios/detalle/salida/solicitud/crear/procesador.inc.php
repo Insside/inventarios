@@ -18,6 +18,6 @@ if($cantidad>0.0&&!empty($datos['articulo'])){
   $isd->crear($datos);
 }
 /** JavaScripts **/
-//$f->windowClose();
+$f->windowClose();
 $f->gridRefresh(Request::getValue("grid"));
 ?>

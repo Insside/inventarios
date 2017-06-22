@@ -3,18 +3,18 @@ $ia=new Inventarios_Articulos();
 $ip=new Inventarios_Precios();
 $im=new Inventarios_Medidas();
 /** Valores **/
-$articulo=$ia->consultar($validaciones->recibir("articulo"));
+$articulo=$ia->consultar(Request::getValue("articulo"));
 $im_compra=$im->consultar($articulo["medida_compra"]);
 $im_venta=$im->consultar($articulo["medida_venta"]);
 /** Valores **/
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $valores['precio']=time();
 $valores['articulo']=$articulo["articulo"];
 $valores['costo_compra_unidad']="0.0";
 $valores['margen_utilidad']="35.00";
 $valores['precio_venta_unidad']="0.0";
 $valores['impuesto']="16.00";
-$valores['responsable']=$validaciones->recibir("_responsable");
+$valores['responsable']=Request::getValue("_responsable");
 $valores['fecha']=date("Y-m-d");
 $valores['hora']=date("H:m:s");
 /** Campos **/

@@ -1,8 +1,8 @@
 <?php
 $im=new Inventarios_Medidas();
 
-$valores['stock_minimo']=$validaciones->recibir("stock_minimo");
-$valores['stock_maximo']=$validaciones->recibir("stock_maximo");
+$valores['stock_minimo']=Request::getValue("stock_minimo");
+$valores['stock_maximo']=Request::getValue("stock_maximo");
 
 $f->campos['stock_minimo']=$f->dynamic(array("field"=>"stock_minimo","value"=>$valores["stock_minimo"]));
 $f->campos['stock_maximo']=$f->dynamic(array("field"=>"stock_maximo","value"=>$valores["stock_maximo"]));

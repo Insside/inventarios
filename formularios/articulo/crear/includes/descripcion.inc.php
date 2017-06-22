@@ -1,5 +1,5 @@
 <?php
-$valores['descripcion']=$validaciones->recibir("descripcion");
+$valores['descripcion']=Request::getValue("descripcion");
 
 $f->campos['descripcion']=$f->dynamic(array("field"=>"descripcion","value"=>$valores["descripcion"]));
 

@@ -5,15 +5,15 @@ $fechas = new Fechas();
 $validaciones = new Validaciones();
 $usuario=Sesion::getUser();
 /** Valores **/
-$itable=$validaciones->recibir("itable");
-$valores['devolucion']=$validaciones->recibir("_devolucion");
-$valores['detalle']=$validaciones->recibir("_detalle");
-$valores['cantidad']=$validaciones->recibir("_cantidad");
-$valores['transaccion']=$validaciones->recibir("_transaccion");
-$valores['observacion']=$validaciones->recibir("_observacion");
-$valores['fecha']=$validaciones->recibir("_fecha");
-$valores['hora']=$validaciones->recibir("_hora");
-$valores['creador']=$validaciones->recibir("_creador");
+$itable=Request::getValue("itable");
+$valores['devolucion']=Request::getValue("_devolucion");
+$valores['detalle']=Request::getValue("_detalle");
+$valores['cantidad']=Request::getValue("_cantidad");
+$valores['transaccion']=Request::getValue("_transaccion");
+$valores['observacion']=Request::getValue("_observacion");
+$valores['fecha']=Request::getValue("_fecha");
+$valores['hora']=Request::getValue("_hora");
+$valores['creador']=Request::getValue("_creador");
 /** Campos **/
 $f->oculto("grid",$v->recibir("grid"));
 $f->oculto("devolucion",time());

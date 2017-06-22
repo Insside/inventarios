@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ip=new Inventarios_Precios();
-$precio=$ip->consultar($validaciones->recibir("precio"));
+$precio=$ip->consultar(Request::getValue("precio"));
 /** Valores **/
 $html="<div class=\"i100x100_eliminar\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Eliminar Precio ".$precio['precio_venta_unidad'].".</b>, identificado con el código ".$precio['precio']."<br>";

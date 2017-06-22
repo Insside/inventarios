@@ -6,8 +6,8 @@
  * */
 $ip = new Inventarios_Precios();
 
-$precio = $validaciones->recibir("precio");
-$itable = $validaciones->recibir("itable");
+$precio = Request::getValue("precio");
+$itable = Request::getValue("itable");
 /**
  * Se debe evaluar si el articulo esta relacionado en algun movimiento de entrada o salida, si es asi no se se podra permitir
  * la eliminación del mismo del catalogo.

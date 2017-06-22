@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ic=new Inventarios_Centros();
-$centro=$ic->consultar($validaciones->recibir("centro"));
+$centro=$ic->consultar(Request::getValue("centro"));
 /** Valores **/
 $html="<div class=\"i100x100_eliminar\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Eliminar Centro ".$centro['nombre'].".</b>, identificado con el código ".$centro['centro']."<br>";

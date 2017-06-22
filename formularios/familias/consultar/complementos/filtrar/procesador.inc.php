@@ -25,9 +25,9 @@ $sesion=new Sesion();
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
-$criterio=$validaciones->recibir("criterio");
-$valor=$validaciones->recibir("valor");
-$inicio=$validaciones->recibir("inicio");
-$final=$validaciones->recibir("final");
+$criterio=Request::getValue("criterio");
+$valor=Request::getValue("valor");
+$inicio=Request::getValue("inicio");
+$final=Request::getValue("final");
 $f->JavaScript("MUI.Inventarios_Articulos_Filtrar('".$criterio."','".$valor."','".$inicio."','".$final."');");
 ?>

@@ -3,8 +3,8 @@ $ROOT = (!isset($ROOT)) ? "../../../../../" : $ROOT;
 require_once($ROOT . "modulos/inventarios/librerias/Configuracion.cnf.php");
 $im=new Inventarios_Medidas();
 /** Valores **/
-$itable=$validaciones->recibir("itable");
-$valores=$im->consultar($validaciones->recibir("medida"));
+$itable=Request::getValue("itable");
+$valores=$im->consultar(Request::getValue("medida"));
 /** Campos **/
 if(!empty($itable)){$f->oculto("itable",$itable);}
 $f->oculto("medida",$valores["medida"]);

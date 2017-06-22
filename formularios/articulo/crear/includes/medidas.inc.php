@@ -1,9 +1,9 @@
 <?php
 $im = new Inventarios_Medidas();
 
-$valores['medida_compra'] = $validaciones->recibir("medida_compra");
-$valores['medida_venta'] = $validaciones->recibir("medida_venta");
-$valores['medida_venta_cantidad'] = $validaciones->recibir("medida_venta_cantidad");
+$valores['medida_compra'] = Request::getValue("medida_compra");
+$valores['medida_venta'] = Request::getValue("medida_venta");
+$valores['medida_venta_cantidad'] = Request::getValue("medida_venta_cantidad");
 
 $f->campos['medida_compra'] = $im->combo("medida_compra", $valores['medida_compra']);
 $f->campos['medida_venta'] = $im->combo("medida_venta", $valores['medida_venta']);

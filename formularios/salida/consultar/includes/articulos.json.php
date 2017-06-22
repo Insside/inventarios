@@ -10,6 +10,7 @@ $isdd = new Inventarios_Salidas_Detalles_Devoluciones();
 $isdl = new Inventarios_Salidas_Detalles_Legalizaciones();
 $isds = new Inventarios_Salidas_Detalles_Seriales();
 $usuario = Sesion::usuario();
+$color["black25p"] = "rgba(0,0,0,0.25)";
 /** Variables Recibidas * */
 $d['grid'] = Request::getValue("grid");
 $d['criterio'] = Request::getValue("criterio");
@@ -92,36 +93,50 @@ while ($fila = $db->sql_fetchrow($consulta)) {
         $fila["seriales"] = "NO";
     }
     /** Evaluaciones previas * */
-    $cd = $isdd->getSummatory($fila["detalle"]);
-    $cd = (!empty($cd) && ($cd > 0)) ? $cd : "0.0";
-    $cl = (float) ($fila["cantidad_entregada"] - $cd);
-    $cc = $isdl->getSummatory($fila["detalle"]);
-    $cp = $cl - $cc;
+    $cd = number_format($isdd->getSummatory($fila["detalle"]),2);
+    $cl = number_format(doubleval($fila["cantidad_entregada"] - $cd), 2);
+    $cc = number_format(doubleval($isdl->getSummatory($fila["detalle"])), 2);
+    $cp = number_format((number_format($cl, 2) - number_format($cc, 2)), 2);
+
     /** Condideraciones de forma * */
-    if (empty($cc)) {
-        $cc = "0.0";
+    if ($cd == "0.00") {
+        $cdcolor = $color["black25p"];
+    } else {
+        $cdcolor = "blue";
     }
-    if (empty($cp)) {
-        $cp = "0.0";
-        $cpcolor = "gray";
+
+
+
+    if ($cc == "0.00") {
+        $cccolor = $color["black25p"];
+    } else {
+        $cccolor = "green";
+    }
+
+
+    if ($cp == "0.00") {
+        $cp = "0.00";
+        $cpcolor = $color["black25p"];
     } else {
         $cpcolor = "red";
     }
 
-    $fila["cantidad_solicitada"] = "<span style=\"color:red;font-weight:400;\">{$fila["cantidad_solicitada"]}</span>";
-    $fila["cantidad_entregada"] = "<span style=\"color:green;font-weight:400;\">{$fila["cantidad_entregada"]}</span>";
-    $fila["cantidad_devuelta"] = "<span style=\"color:blue;font-weight:400;\">{$cd}</span>";
-    $fila["cantidad_legalizable"] = "<span style=\"color:blue;font-weight:400;\">{$cl}</span>";
-    $fila["cantidad_cobrada"] = "<span style=\"color:green;font-weight:800;\">{$cc}</span>";
+    $fila["cantidad_solicitada"] = "<span style=\"color:red;\">{$fila["cantidad_solicitada"]}</span>";
+    $fila["cantidad_entregada"] = "<span style=\"color:green;font-weight:800;\">{$fila["cantidad_entregada"]}</span>";
+    $fila["cantidad_devuelta"] = "<span style=\"color:{$cdcolor};font-weight:800;\">{$cd}</span>";
+    $fila["cantidad_legalizable"] = "<span style=\"color:blue;\">{$cl}</span>";
+    $fila["cantidad_cobrada"] = "<span style=\"color:{$cccolor};font-weight:800;\">{$cc}</span>";
     $fila["cantidad_pendiente"] = "<span style=\"color:{$cpcolor};font-weight:800;\">{$cp}</span>";
-    /** Observación **/
-    if(!empty($fila["observacion"])){$fila["observacion"]="SI";}
+    /** Observación * */
+    if (!empty($fila["observacion"])) {
+        $fila["observacion"] = "SI";
+    }
     array_push($ret, $fila);
 }
 
 $db->sql_close();
 echo json_encode(array("sql" => $sql, "uid" => $usuario['usuario'], "page" => $page, "total" => $total, "data" => $ret));
-/** Liberando Memoria **/
+/** Liberando Memoria * */
 unset($ia);
 unset($isdd);
 unset($isdl);

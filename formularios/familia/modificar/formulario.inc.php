@@ -3,8 +3,8 @@ $ROOT = (!isset($ROOT)) ? "../../../../../" : $ROOT;
 require_once($ROOT . "modulos/inventarios/librerias/Configuracion.cnf.php");
 $if=new Inventarios_Familias();
 /** Valores **/
-$itable=$validaciones->recibir("itable");
-$valores=$if->consultar($validaciones->recibir("familia"));
+$itable=Request::getValue("itable");
+$valores=$if->consultar(Request::getValue("familia"));
 /** Campos **/
 if(!empty($itable)){$f->oculto("itable",$itable);}
 $f->campos['familia']=$f->dynamic(array("field"=>"familia","value"=>$valores["familia"]));

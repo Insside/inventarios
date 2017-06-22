@@ -3,11 +3,11 @@ $ROOT = (!isset($ROOT)) ? "../../../../../" : $ROOT;
 require_once($ROOT . "modulos/inventarios/librerias/Configuracion.cnf.php");
 
 /** Valores **/
-$itable=$validaciones->recibir("itable");
-$valores['medida']=$validaciones->recibir("_medida");
-$valores['siglas']=$validaciones->recibir("_siglas");
-$valores['nombre']=$validaciones->recibir("_nombre");
-$valores['descripcion']=$validaciones->recibir("_descripcion");
+$itable=Request::getValue("itable");
+$valores['medida']=Request::getValue("_medida");
+$valores['siglas']=Request::getValue("_siglas");
+$valores['nombre']=Request::getValue("_nombre");
+$valores['descripcion']=Request::getValue("_descripcion");
 $valores['fecha']=date("Y-m-d");
 $valores['hora']=date("H:m:s");
 /** Campos **/

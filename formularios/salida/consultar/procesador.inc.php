@@ -27,7 +27,7 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 /** JavaScripts **/
 $f->windowClose();
 $f->JavaScript("if(".$itable."){".$itable.".refresh();}");

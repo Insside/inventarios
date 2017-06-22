@@ -28,8 +28,8 @@ Sesion::init();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 $validaciones=new Validaciones();
-$transaccion=$validaciones->recibir("transaccion");
-$trasmision = $validaciones->recibir("trasmision");
+$transaccion=Request::getValue("transaccion");
+$trasmision = Request::getValue("trasmision");
 $url['formulario']=$ROOT . "modulos/inventarios/formularios/salida/modificar/formulario.inc.php";
 $url['procesador']=$ROOT . "modulos/inventarios/formularios/salida/modificar/procesador.inc.php";
 

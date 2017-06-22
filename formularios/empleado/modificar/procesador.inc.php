@@ -27,21 +27,21 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ie=new Inventarios_Empleados();
 $datos=array();
-$empleado=$validaciones->recibir("empleado");
-$datos['documento']=$validaciones->recibir("documento");
-$datos['nombres']=$validaciones->recibir("nombres");
-$datos['apellidos']=$validaciones->recibir("apellidos");
-$datos['direccion']=$validaciones->recibir("direccion");
-$datos['telefono']=$validaciones->recibir("telefono");
-$datos['correo']=$validaciones->recibir("correo");
-$datos['sexo']=$validaciones->recibir("sexo");
-$datos['foto']=$validaciones->recibir("foto");
-$datos['fecha']=$validaciones->recibir("fecha");
-$datos['hora']=$validaciones->recibir("hora");
-$datos['creador']=$validaciones->recibir("creador");
+$empleado=Request::getValue("empleado");
+$datos['documento']=Request::getValue("documento");
+$datos['nombres']=Request::getValue("nombres");
+$datos['apellidos']=Request::getValue("apellidos");
+$datos['direccion']=Request::getValue("direccion");
+$datos['telefono']=Request::getValue("telefono");
+$datos['correo']=Request::getValue("correo");
+$datos['sexo']=Request::getValue("sexo");
+$datos['foto']=Request::getValue("foto");
+$datos['fecha']=Request::getValue("fecha");
+$datos['hora']=Request::getValue("hora");
+$datos['creador']=Request::getValue("creador");
 foreach($datos as $campo=>$valor){
   $ie->actualizar($empleado, $campo, $valor);
 }

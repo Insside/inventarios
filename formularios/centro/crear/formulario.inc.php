@@ -10,11 +10,11 @@ $is = new Inventarios_Salidas();
 $ie = new Inventarios_Empleados();
 $usuario = Sesion::usuario();
 /** Valores * */
-$itable = $validaciones->recibir("itable");
+$itable = Request::getValue("itable");
 $valores['centro'] = time();
-$valores['codigo_contable'] = $validaciones->recibir("_codigo_contable");
-$valores['nombre'] = $validaciones->recibir("_nombre");
-$valores['descripcion'] = $validaciones->recibir("_descripcion");
+$valores['codigo_contable'] = Request::getValue("_codigo_contable");
+$valores['nombre'] = Request::getValue("_nombre");
+$valores['descripcion'] = Request::getValue("_descripcion");
 $valores['fecha'] =$fechas->hoy();
 $valores['hora'] =$fechas->ahora();
 /** Campos * */

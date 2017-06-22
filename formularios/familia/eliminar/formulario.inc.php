@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $if=new Inventarios_Familias();
-$familia=$if->consultar($validaciones->recibir("familia"));
+$familia=$if->consultar(Request::getValue("familia"));
 /** Valores **/
 $html="<div class=\"i100x100_eliminar\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Eliminar Familia ".$familia['nombre'].".</b>, identificada con el código ".$familia['familia']."<br>";

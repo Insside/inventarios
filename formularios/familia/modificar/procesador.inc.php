@@ -31,16 +31,16 @@ $fechas=new Fechas();
 $cadenas = new Cadenas();
 $fechas = new Fechas();
 $validaciones = new Validaciones();
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $usuario=  Sesion::usuario();
 /** Clase representativa Del Objeto **/
 $if=new Inventarios_Familias();
 /** Campos Recibidos **/
 $datos=array();
-$datos['familia']=$validaciones->recibir("familia");
-$datos['codigo']=$validaciones->recibir("codigo");
-$datos['nombre']=$validaciones->recibir("nombre");
-$datos['descripcion']=urlencode($validaciones->recibir("descripcion"));
+$datos['familia']=Request::getValue("familia");
+$datos['codigo']=Request::getValue("codigo");
+$datos['nombre']=Request::getValue("nombre");
+$datos['descripcion']=urlencode(Request::getValue("descripcion"));
 $datos['creador']=$usuario["usuario"];
 $datos['fecha']=date("Y-m-d");
 $datos['hora']=date("H:m:s");

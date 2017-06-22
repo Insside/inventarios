@@ -27,7 +27,7 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $cadenas = new Cadenas();
 $fechas = new Fechas();
 $validaciones = new Validaciones();
@@ -35,10 +35,10 @@ $validaciones = new Validaciones();
 $clase=new Inventarios_Medidas();
 /** Campos Recibidos **/
 $datos=array();
-$datos['medida']=$validaciones->recibir("medida");
-$datos['siglas']=$validaciones->recibir("siglas");
-$datos['nombre']=$validaciones->recibir("nombre");
-$datos['descripcion']=$validaciones->recibir("descripcion");
+$datos['medida']=Request::getValue("medida");
+$datos['siglas']=Request::getValue("siglas");
+$datos['nombre']=Request::getValue("nombre");
+$datos['descripcion']=Request::getValue("descripcion");
 $datos['fecha']=date("Y-m-d");
 $datos['hora']=date("H:m:s");
 $codigo=$clase->crear($datos);

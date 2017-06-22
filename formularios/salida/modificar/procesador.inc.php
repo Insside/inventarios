@@ -27,16 +27,16 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $is=new Inventarios_Salidas();
 $datos=array();
-$datos['salida']=$validaciones->recibir("salida");
-$datos['tercero']=$validaciones->recibir("tercero");
-$datos['orden']=$validaciones->recibir("orden");
-$datos['cobro']=$validaciones->recibir("cobro");
-$datos['fecha']=$validaciones->recibir("fecha");
-$datos['hora']=$validaciones->recibir("hora");
-$datos['creador']=$validaciones->recibir("creador");
+$datos['salida']=Request::getValue("salida");
+$datos['tercero']=Request::getValue("tercero");
+$datos['orden']=Request::getValue("orden");
+$datos['cobro']=Request::getValue("cobro");
+$datos['fecha']=Request::getValue("fecha");
+$datos['hora']=Request::getValue("hora");
+$datos['creador']=Request::getValue("creador");
 foreach($datos as $campo=>$valor){
   $is->actualizar($datos['salida'], $campo, $valor);
 }

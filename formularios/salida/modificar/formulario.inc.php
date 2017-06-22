@@ -12,9 +12,9 @@ $ic=new Inventarios_Centros();
 $ist=new Inventarios_Salidas_Tipos();
 $usuario = Sesion::usuario();
 /** Valores **/
-$valores=$is->consultar($validaciones->recibir("salida"));
+$valores=$is->consultar(Request::getValue("salida"));
 /** Campos * */
-$f->oculto("itable",$validaciones->recibir("itable"));
+$f->oculto("itable",Request::getValue("itable"));
 $f->campos['salida'] = $f->text("salida", $valores['salida'], "10", "required codigo", true);
 $f->campos['tercero'] = $ie->combo("tercero",$valores['tercero']);
 $f->campos['centro_costos'] = $ic->combo("centros_costos",@$valores['centros_costos']);

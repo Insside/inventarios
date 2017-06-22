@@ -5,15 +5,15 @@ $error["mensaje"] = "";
 $validaciones = new Validaciones();
 
 $datos = array();
-$datos['salida'] = $validaciones->recibir("salida");
-$datos['tercero'] = $validaciones->recibir("tercero");
-$datos['tipo'] = $validaciones->recibir("tipo");
-$datos['centro_costos'] = $validaciones->recibir("centro_costos");
-$datos['orden'] = $validaciones->recibir("orden");
-$datos['cobro'] = $validaciones->recibir("cobro");
-$datos['fecha'] = $validaciones->recibir("fecha");
-$datos['hora'] = $validaciones->recibir("hora");
-$datos['creador'] = $validaciones->recibir("creador");
+$datos['salida'] = Request::getValue("salida");
+$datos['tercero'] = Request::getValue("tercero");
+$datos['tipo'] = Request::getValue("tipo");
+$datos['centro_costos'] = Request::getValue("centro_costos");
+$datos['orden'] = Request::getValue("orden");
+$datos['cobro'] = Request::getValue("cobro");
+$datos['fecha'] = Request::getValue("fecha");
+$datos['hora'] = Request::getValue("hora");
+$datos['creador'] = Request::getValue("creador");
 
 if (!empty($datos['orden']) && !$validaciones->entero($datos['orden'])) {
   $error["estado"] = true;

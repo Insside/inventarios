@@ -11,9 +11,9 @@ $componentes=new Componentes();
 $ie=new Inventarios_Empleados();
 $usuario=Sesion::usuario();
 /** Valores **/
-$valores=$ie->consultar($validaciones->recibir("empleado"));
+$valores=$ie->consultar(Request::getValue("empleado"));
 /** Campos **/
-$f->oculto("itable",$validaciones->recibir("itable"));
+$f->oculto("itable",Request::getValue("itable"));
 $f->campos['empleado']=$f->text("empleado",$valores['empleado'],"10","required codigo",true);
 $f->campos['documento']=$f->text("documento",$valores['documento'],"2","required codigo",true);
 $f->campos['nombres']=$f->text("nombres",$valores['nombres'],"255","",false);

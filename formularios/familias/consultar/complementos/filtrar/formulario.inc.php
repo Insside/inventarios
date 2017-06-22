@@ -28,13 +28,13 @@ $inventarios=new Inventarios();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 /** Valores **/
-$valores['criterio']=$validaciones->recibir("criterio");
-$valores['valor']=$validaciones->recibir("valor");
-$valores['inicio']=$validaciones->recibir("inicio");   
-$valores['final']=$validaciones->recibir("final");
+$valores['criterio']=Request::getValue("criterio");
+$valores['valor']=Request::getValue("valor");
+$valores['inicio']=Request::getValue("inicio");   
+$valores['final']=Request::getValue("final");
 
-$s['inicio']=$validaciones->recibir("inicio");
-$s['final']=$validaciones->recibir("final");
+$s['inicio']=Request::getValue("inicio");
+$s['final']=Request::getValue("final");
 
 $valores['inicio']=empty($s['inicio'])?"2012-01-01":$s['inicio'];
 $valores['final']=empty($s['final'])?$fechas->hoy():$s['final'];

@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ia=new Inventarios_Articulos();
-$articulo=$ia->consultar($validaciones->recibir("articulo"));
+$articulo=$ia->consultar(Request::getValue("articulo"));
 /** Valores **/
 $html="<div class=\"i100x100_restringido\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Denegado / Restringido</b><br>";

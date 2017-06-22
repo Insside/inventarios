@@ -27,15 +27,15 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ic=new Inventarios_Centros();
 $datos=array();
-$datos['centro']=$validaciones->recibir("centro");
-$datos['codigo_contable']=$validaciones->recibir("codigo_contable");
-$datos['nombre']=$validaciones->recibir("nombre");
-$datos['descripcion']=$validaciones->recibir("descripcion");
-$datos['fecha']=$validaciones->recibir("fecha");
-$datos['hora']=$validaciones->recibir("hora");
+$datos['centro']=Request::getValue("centro");
+$datos['codigo_contable']=Request::getValue("codigo_contable");
+$datos['nombre']=Request::getValue("nombre");
+$datos['descripcion']=Request::getValue("descripcion");
+$datos['fecha']=Request::getValue("fecha");
+$datos['hora']=Request::getValue("hora");
 $ic->actualizar($datos['centro'],"codigo_contable",$datos['codigo_contable']);
 $ic->actualizar($datos['centro'],"nombre",$datos['nombre']);
 $ic->actualizar($datos['centro'],"descripcion",urlencode($datos['descripcion']));

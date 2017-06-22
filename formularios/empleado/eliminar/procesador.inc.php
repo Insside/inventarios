@@ -4,8 +4,8 @@
  * proceso implica dos acciones eliminar el registro de la base de datos y eliminar fisicamente el archivo
  * */
 $ie=new Inventarios_Empleados();
-$empleado=$validaciones->recibir("empleado");
-$itable=$validaciones->recibir("itable");
+$empleado=Request::getValue("empleado");
+$itable=Request::getValue("itable");
 $ie->eliminar($empleado); 
 $f->windowClose();
 $f->JavaScript("if(".$itable."){".$itable.".refresh();}");

@@ -1,6 +1,6 @@
 <?php
 /** Campos **/
-$f->oculto("grid",$validaciones->recibir("grid"));
+$f->oculto("grid",Request::getValue("grid"));
 $f->oculto("detalle",$d['detalle']);
 $f->oculto("salida",$d['salida']);
 $f->oculto("fecha_solicitud",$fechas->hoy());

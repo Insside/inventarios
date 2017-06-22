@@ -11,7 +11,7 @@ if (!empty($familia)) {
     $sql = ""
             . "SELECT * "
             . "FROM `inventarios_articulos` "
-            . "WHERE `familia` ='" . $familia. "' "
+            . "WHERE `familia` ='" . $familia. "' AND `estado` = 'ACTIVO' " 
             . "ORDER BY `nombre`";
 } else {
     $sql = ""

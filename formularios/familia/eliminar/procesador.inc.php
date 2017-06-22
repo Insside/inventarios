@@ -7,8 +7,8 @@
 $if = new Inventarios_Familias();
 $ia = new Inventarios_Articulos();
 
-$familia = $validaciones->recibir("familia");
-$itable = $validaciones->recibir("itable");
+$familia = Request::getValue("familia");
+$itable = Request::getValue("itable");
 /**
  * Se debe evaluar si el familia esta relacionado en algun movimiento de entrada o salida, si es asi no se se podra permitir
  * la eliminación del mismo del catalogo.

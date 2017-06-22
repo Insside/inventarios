@@ -20,7 +20,7 @@ $ctd=$isdd->getSummatory($detalle["detalle"]);
 $cl=$cte-$ctd;
 $ctl=$v->recibir("cantidad")+$isdl->getSummatory($detalle["detalle"]);
 
-if($ctl<=$cl){
+if(number_format($ctl,2)<=number_format($cl,2)){
    require_once(PATH . "/includes/registrar.inc.php");
 }else{
   require_once(PATH . "/includes/advertencia.inc.php");

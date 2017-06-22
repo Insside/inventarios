@@ -7,8 +7,8 @@
 $ic = new Inventarios_Centros();
 $ia = new Inventarios_Articulos();
 
-$centro = $validaciones->recibir("centro");
-$itable = $validaciones->recibir("itable");
+$centro = Request::getValue("centro");
+$itable = Request::getValue("itable");
 /**
  * Se debe evaluar si el familia esta relacionado en algun movimiento de entrada o salida, si es asi no se se podra permitir
  * la eliminación del mismo del catalogo.

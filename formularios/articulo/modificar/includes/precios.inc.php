@@ -2,10 +2,10 @@
 
 $im = new Inventarios_Medidas();
 
-$valores['costo_compra_unidad'] = $validaciones->recibir("costo_compra_unidad");
-$valores['margen_utilidad'] = $validaciones->recibir("medida_venta_cantidad");
-$valores['precio_venta'] = $validaciones->recibir("medida_venta");
-$valores['ganancia'] = $validaciones->recibir("ganancia");
+$valores['costo_compra_unidad'] = Request::getValue("costo_compra_unidad");
+$valores['margen_utilidad'] = Request::getValue("medida_venta_cantidad");
+$valores['precio_venta'] = Request::getValue("medida_venta");
+$valores['ganancia'] = Request::getValue("ganancia");
 
 $message="<p>Un costo, es un egreso que representa el valor de los recursos que se erogan en la "
         . "realización de actividades que generan ingreso; el costo se identifica por ser generador directo de ingreso y por tanto, "

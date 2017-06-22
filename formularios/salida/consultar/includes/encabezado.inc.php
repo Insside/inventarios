@@ -27,14 +27,14 @@ $validaciones=new Validaciones();
  */
 
 $codigos=new Codigos();
-$codificado = $codigos->generar("http://www.aguasdebuga.net/?modulo=inventarios&codigo=". $validaciones->recibir("remision"));
+$codificado = $codigos->generar("http://www.aguasdebuga.net/?modulo=inventarios&codigo=". Request::getValue("remision"));
 $html["encabezado_izquierda"] = ""
         . "<div class=\"celda izquierda sinfondo\" style=\"vertical-align:middle !important;\">"
         . "<img src=\"imagenes/logo-267x140.png\" width=\"267\" height=\"140\"/>"
         . "</div>";
 $html["encabezado_centro"] = ""
         . "<div class=\"celda centro sinfondo\" style=\"vertical-align:middle !important;\">"
-        . "<h1> REMISIÓN REM-" . ($validaciones->recibir("remision")). "</h1>"
+        . "<h1> REMISIÓN REM-" . (Request::getValue("remision")). "</h1>"
         . "<p>Codigo: IMIS-003 / Revisión: 01  / Rige a partir de: 2015-01-01</p>"
         . "<p style=\"margin-top:5px;font-size:12px;line-height:10px; color:#cccccc;\">El presente documento constituye una constancia legal de la verificación y registro de la presente información en nuestros sistemas informáticos, la verificación de la integridad del mismo se puede realizar mediante el código QR en la parte superior derecha del presente formato o mediante el código RE-PQRS asignado textualmente en la parte superior central del presente documento."
         . "</p>"

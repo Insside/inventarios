@@ -11,8 +11,8 @@ $ie = new Inventarios_Empleados();
 $ic = new Inventarios_Centros();
 $usuario = Sesion::usuario();
 /** Valores * */
-$itable = $validaciones->recibir("itable");
-$valores=$ic->consultar($validaciones->recibir("centro"));
+$itable = Request::getValue("itable");
+$valores=$ic->consultar(Request::getValue("centro"));
 /** Campos * */
 if (!empty($itable)) {
   $f->oculto("itable", $itable);

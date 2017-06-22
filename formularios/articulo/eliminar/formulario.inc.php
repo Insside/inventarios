@@ -1,7 +1,7 @@
 <?php 
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ia=new Inventarios_Articulos();
-$articulo=$ia->consultar($validaciones->recibir("articulo"));
+$articulo=$ia->consultar(Request::getValue("articulo"));
 /** Valores **/
 $html="<div class=\"i100x100_eliminar\" style=\"float: left;\"></div>";
 $html.="<div class=\"notificacion\"><p><b>Eliminar Articulo ".$articulo['nombre'].".</b>, identificado con el código ".$articulo['articulo']."<br>";

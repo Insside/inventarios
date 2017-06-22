@@ -7,8 +7,8 @@
 $ia = new Inventarios_Articulos();
 $isd = new Inventarios_Salidas_Detalles();
 
-$articulo = $validaciones->recibir("articulo");
-$itable = $validaciones->recibir("itable");
+$articulo = Request::getValue("articulo");
+$itable = Request::getValue("itable");
 /**
  * Se debe evaluar si el articulo esta relacionado en algun movimiento de entrada o salida, si es asi no se se podra permitir
  * la eliminación del mismo del catalogo.

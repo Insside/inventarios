@@ -27,19 +27,19 @@ $fechas=new Fechas();
  * POSSIBILITY OF SUCH DAMAGE.
  */
 //print_r($_REQUEST);
-$itable=$validaciones->recibir("itable");
+$itable=Request::getValue("itable");
 $ip=new Inventarios_Precios();
 $usuario=  Sesion::usuario();
 $datos=array();
-$datos['precio']=$validaciones->recibir("precio");
-$datos['articulo']=$validaciones->recibir("articulo");
-$datos['costo_compra_unidad']=$validaciones->recibir("costo_compra_unidad");
-$datos['margen_utilidad']=$validaciones->recibir("margen_utilidad");
-$datos['precio_venta_unidad']=$validaciones->recibir("precio_venta_unidad");
-$datos['impuesto']=$validaciones->recibir("impuesto");
+$datos['precio']=Request::getValue("precio");
+$datos['articulo']=Request::getValue("articulo");
+$datos['costo_compra_unidad']=Request::getValue("costo_compra_unidad");
+$datos['margen_utilidad']=Request::getValue("margen_utilidad");
+$datos['precio_venta_unidad']=Request::getValue("precio_venta_unidad");
+$datos['impuesto']=Request::getValue("impuesto");
 $datos['responsable']=$usuario["usuario"];
-$datos['fecha']=$validaciones->recibir("fecha");
-$datos['hora']=$validaciones->recibir("hora");
+$datos['fecha']=Request::getValue("fecha");
+$datos['hora']=Request::getValue("hora");
 $ip->crear($datos);
 /** JavaScripts **/
 $f->windowClose();

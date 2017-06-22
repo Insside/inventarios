@@ -40,13 +40,13 @@ $ie=new Inventarios_Empleados();
 $usuario = Sesion::usuario();
 
 /** Variables Recibidas * */
-$v['criterio'] = $validaciones->recibir("criterio");
-$v['valor'] = $validaciones->recibir("valor");
-$v['inicio'] = $validaciones->recibir("inicio");
-$v['final'] = $validaciones->recibir("final");
-$v['transaccion'] = $validaciones->recibir("transaccion");
-$v['page'] = $validaciones->recibir("page");
-$v['perpage'] = $validaciones->recibir("perpage");
+$v['criterio'] = Request::getValue("criterio");
+$v['valor'] = Request::getValue("valor");
+$v['inicio'] = Request::getValue("inicio");
+$v['final'] = Request::getValue("final");
+$v['transaccion'] = Request::getValue("transaccion");
+$v['page'] = Request::getValue("page");
+$v['perpage'] = Request::getValue("perpage");
 /** Verificaciones * */
 /**
  * Se evalua el comportamiento en caso de no recibir el periodo inicio y final de la consulta para lo 

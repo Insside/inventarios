@@ -5,15 +5,15 @@ $fechas = new Fechas();
 $validaciones = new Validaciones();
 $usuario=Sesion::getUser();
 /** Valores **/
-$itable=$validaciones->recibir("itable");
-$valores['legalizacion']=$validaciones->recibir("_legalizacion");
-$valores['detalle']=$validaciones->recibir("_detalle");
-$valores['cantidad']=$validaciones->recibir("_cantidad");
+$itable=Request::getValue("itable");
+$valores['legalizacion']=Request::getValue("_legalizacion");
+$valores['detalle']=Request::getValue("_detalle");
+$valores['cantidad']=Request::getValue("_cantidad");
 $valores['cobro']=Sesion::getValue("legalizacioncobro");
-$valores['observacion']=$validaciones->recibir("_observacion");
-$valores['fecha']=$validaciones->recibir("_fecha");
-$valores['hora']=$validaciones->recibir("_hora");
-$valores['creador']=$validaciones->recibir("_creador");
+$valores['observacion']=Request::getValue("_observacion");
+$valores['fecha']=Request::getValue("_fecha");
+$valores['hora']=Request::getValue("_hora");
+$valores['creador']=Request::getValue("_creador");
 /** Campos **/
 $f->oculto("grid",$v->recibir("grid"));
 $f->oculto("legalizacion",time());

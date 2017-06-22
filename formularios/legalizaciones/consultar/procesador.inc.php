@@ -29,8 +29,8 @@ $fechas=new Fechas();
 print_r($_REQUEST);
 $isd=new Inventarios_Salidas_Detalles();
 $datos=array();
-$datos['detalle']=$validaciones->recibir("detalle");
-$datos['cantidad_entregada']=$validaciones->recibir("cantidad_solicitada");
+$datos['detalle']=Request::getValue("detalle");
+$datos['cantidad_entregada']=Request::getValue("cantidad_solicitada");
 $cantidad=(double)$datos['cantidad_entregada'];
 $isd->actualizar($datos['detalle'],"cantidad_entregada",$cantidad);
 /** JavaScripts **/

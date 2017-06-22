@@ -1,8 +1,8 @@
 <?php
 
-$itable = $validaciones->recibir("itable");
+$itable = Request::getValue("itable");
 $is = new Inventarios_Salidas();
-$salida = $is->consultar($validaciones->recibir("salida"));
+$salida = $is->consultar(Request::getValue("salida"));
 /** Valores * */
 if ($salida["autorizado"] == "NO") {
     $message = "<p><b>Eliminar Salida " . $salida['salida'] . ".</b><br>Se dispone a eliminar un salida del sistema se le solicita considere que esta acción es irreversible. Antes de proceder, confirme o cancele la presente solicitud para poder continuar.</p>";
