@@ -93,10 +93,15 @@ while ($fila = $db->sql_fetchrow($consulta)) {
         $fila["seriales"] = "NO";
     }
     /** Evaluaciones previas * */
-    $cd = number_format($isdd->getSummatory($fila["detalle"]),2);
-    $cl = number_format(doubleval($fila["cantidad_entregada"] - $cd), 2);
-    $cc = number_format(doubleval($isdl->getSummatory($fila["detalle"])), 2);
-    $cp = number_format((number_format($cl, 2) - number_format($cc, 2)), 2);
+    $ce=$fila["cantidad_entregada"];
+    $cd = $isdd->getSummatory($fila["detalle"]);
+    $cl = $ce - $cd;
+    $cc = $isdl->getSummatory($fila["detalle"]);
+    $cp = $cl-$cc;
+    
+
+
+
 
     /** Condideraciones de forma * */
     if ($cd == "0.00") {
@@ -122,11 +127,11 @@ while ($fila = $db->sql_fetchrow($consulta)) {
     }
 
     $fila["cantidad_solicitada"] = "<span style=\"color:red;\">{$fila["cantidad_solicitada"]}</span>";
-    $fila["cantidad_entregada"] = "<span style=\"color:green;font-weight:800;\">{$fila["cantidad_entregada"]}</span>";
-    $fila["cantidad_devuelta"] = "<span style=\"color:{$cdcolor};font-weight:800;\">{$cd}</span>";
+    $fila["cantidad_entregada"] = "<span style=\"color:green;font-weight:800;\">".number_format($ce,2)."</span>";
+    $fila["cantidad_devuelta"] = "<span style=\"color:{$cdcolor};font-weight:800;\">".number_format($cd,2)."</span>";
     $fila["cantidad_legalizable"] = "<span style=\"color:blue;\">{$cl}</span>";
-    $fila["cantidad_cobrada"] = "<span style=\"color:{$cccolor};font-weight:800;\">{$cc}</span>";
-    $fila["cantidad_pendiente"] = "<span style=\"color:{$cpcolor};font-weight:800;\">{$cp}</span>";
+    $fila["cantidad_cobrada"] = "<span style=\"color:{$cccolor};font-weight:800;\">".number_format($cc,2)."</span>";
+    $fila["cantidad_pendiente"] = "<span style=\"color:{$cpcolor};font-weight:800;\">".number_format($cp,2)."</span>";
     /** Observación * */
     if (!empty($fila["observacion"])) {
         $fila["observacion"] = "SI";

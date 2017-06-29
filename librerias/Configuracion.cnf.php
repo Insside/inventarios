@@ -6,8 +6,6 @@ $ROOT = (!isset($ROOT)) ? ROOT:$ROOT;
 /** Requires **/
 $RMI=ROOT_MODULE_INVENTARIOS;
 // Librerias Del Modulo
-
-
 //require_once($ROOT . "modulos/inventarios/librerias/Familias.class.php");
 //require_once($ROOT . "modulos/inventarios/librerias/Productos.class.php");
 require_once($RMI."librerias/Inventarios_Salidas_Detalles_Seriales.class.php");

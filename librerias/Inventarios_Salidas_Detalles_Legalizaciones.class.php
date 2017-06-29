@@ -68,6 +68,14 @@ if (!class_exists("Inventarios_Salidas_Detalles_Legalizaciones")) {
             $db->sql_close();
             return($fila["sum"]);
         }
+        
+        /**
+         * Determina si el tiempo(dias) para realizar la legalización de una solicitud
+         * se encuentra excedido.
+         */
+        public function getExpirationStatus(){
+            
+        }
 
     }
 

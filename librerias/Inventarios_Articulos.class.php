@@ -6,6 +6,8 @@
  * @author Jose Alexis Correa Valencia <jalexiscv@gmail.com>
  * @copyright (c) 2015 www.insside.com
  */
+
+
 if (!class_exists('Inventarios_Articulos')) {
 
     class Inventarios_Articulos {
@@ -61,7 +63,7 @@ if (!class_exists('Inventarios_Articulos')) {
             $db->sql_close();
             return($fila);
         }
-
+        
         function combo($name, $selected, $disabled = false, $change = "") {
             $selected = empty($selected) ? "00" : $selected;
             $disabled = ($disabled) ? "disabled=\"disabled\"" : "";
@@ -77,7 +79,6 @@ if (!class_exists('Inventarios_Articulos')) {
             $html .= ("</select>");
             return($html);
         }
-
         /**
          * Retorna el listado de usos especificados en la base de datos.
          * @param type $parametros
@@ -86,7 +87,7 @@ if (!class_exists('Inventarios_Articulos')) {
         public function getList($parametros = array()) {
             if (is_array($parametros)) {
                 $db = new MySQL(Sesion::getConexion());
-                $sql = "SELECT * FROM `inventarios_articulos` WHERE(`familia`='{$parametros["familia"]}')ORDER BY `nombre`;";
+                $sql = "SELECT * FROM `inventarios_articulos` WHERE(`familia`='{$parametros["familia"]}' AND `estado` = 'ACTIVO' )ORDER BY `nombre`;";
                 $consulta = $db->sql_query($sql);
                 $usos = array();
                 while ($fila = $db->sql_fetchrow($consulta)) {

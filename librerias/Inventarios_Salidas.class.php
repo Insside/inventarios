@@ -126,7 +126,7 @@ if (!class_exists('Inventarios_Salidas')) {
             $consulta = $db->sql_query($sql);
             $fila = $db->sql_fetchrow($consulta);
             $db->sql_close();
-            $conteo=$fila["conteo"];
+            $conteo = $fila["conteo"];
             unset($db);
             unset($sql);
             unset($consulta);
@@ -192,8 +192,7 @@ if (!class_exists('Inventarios_Salidas')) {
         public function getStatusLegalizacion($salida) {
             $isd = new Inventarios_Salidas_Detalles();
             $db = new MySQL(Sesion::getConexion());
-            $sql = "SELECT * FROM `inventarios_salidas_detalles` "
-                    . "WHERE `salida`='" . $salida . "';";
+            $sql = "SELECT * FROM `inventarios_salidas_detalles` WHERE `salida`='" . $salida . "';";
             $consulta = $db->sql_query($sql);
             $estado = true;
             while ($fila = $db->sql_fetchrow($consulta)) {
@@ -205,7 +204,34 @@ if (!class_exists('Inventarios_Salidas')) {
             $db->sql_close();
             return($estado);
         }
-/**
+        
+        /**
+         * Este metodo permite determinar si los detalles asociados a una salida
+         * se encuentran totalmente legalizados. Para ello se consulta la salida y 
+         * luego se revisa uno a uno todos los items del detalle.
+         * @param type $salida
+         * @return type
+         */
+        public function getLegalizacionPendingStatus($salida) {
+            $isd = new Inventarios_Salidas_Detalles();
+            $db = new MySQL(Sesion::getConexion());
+            $sql = "SELECT * FROM `inventarios_salidas_detalles` WHERE `salida`='" . $salida . "';";
+            $consulta = $db->sql_query($sql);
+            $estado = false;
+            while ($fila = $db->sql_fetchrow($consulta)) {
+                $isdgpl= number_format($isd->getPendienteLegalizar($fila["detalle"]),2);
+                if($isdgpl>0.0){
+                    return(true);
+                }
+            }
+            $db->sql_close();
+            return($estado);
+        }
+        
+        
+        
+
+        /**
          * Retorna el listado de usos especificados en la base de datos.
          * @param type $parametros
          * @return type
@@ -224,7 +250,6 @@ if (!class_exists('Inventarios_Salidas')) {
                 echo("Error: Usos::getList() esperava un vector de parametros.");
             }
         }
-
 
     }
 
