@@ -25,7 +25,7 @@ $f->botones($f->campos['ayuda'], "inferior-izquierda");
 $f->botones($f->campos['cancelar'], "inferior-derecha");
 $f->botones($f->campos['registrar'], "inferior-derecha");
 /** JavaScripts * */
-$f->windowTitle("Articulo / Modificar","1.2");
+$f->windowTitle("Articulo / Modificar","1.3");
 $f->windowResize(array("autoresize"=>false,"width"=>"640","height"=>"420"));
 $f->windowCenter();
 $f->eClick("cancelar" . $f->id, "MUI.closeWindow($('" . $f->ventana . "'));");

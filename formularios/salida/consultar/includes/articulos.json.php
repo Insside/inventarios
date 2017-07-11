@@ -84,8 +84,7 @@ while ($fila = $db->sql_fetchrow($consulta)) {
     $fila["conteo"] = $conteo;
     $fila["codigo"] = "<b>{$articulo["codigo"]}</b>";
     $fila["articulo"] = "{$fila["articulo"]}";
-    $fila["nombre"] = $articulo["nombre"] . "...";
-
+    $fila["nombre"] = htmlentities(urldecode($articulo["nombre"])) . "...";
     if ($articulo["serializable"] == "SI") {
         $sns = $isds->getCount($fila["detalle"]) . "/" . intval($fila["cantidad_entregada"]);
         $fila["seriales"] = "<a href=\"#\" onClick=\"MUI.Inventarios_Salida_Detalle_Serializacion('{$fila["detalle"]}','{$d['grid']}');\">{$sns}</a>";
@@ -98,11 +97,6 @@ while ($fila = $db->sql_fetchrow($consulta)) {
     $cl = $ce - $cd;
     $cc = $isdl->getSummatory($fila["detalle"]);
     $cp = $cl-$cc;
-    
-
-
-
-
     /** Condideraciones de forma * */
     if ($cd == "0.00") {
         $cdcolor = $color["black25p"];

@@ -13,6 +13,7 @@ $d['codigo']=Request::getValue("_codigo");
 $d['familia']=Request::getValue("_familia");
 $d['referencia']=Request::getValue("referencia");
 $d['nombre']=Request::getValue("_nombre");
+$d['serializable']=Request::getValue("_serializable");
 $d['fecha']=date("Y-m-d");
 $d['hora']=date("H:m:s");
 $d['creador']=Request::getValue("_creador");
@@ -27,6 +28,7 @@ $f->campos['referencia']=$f->dynamic(array("field"=>"referencia","value"=>$d["re
 $f->campos['fecha']=$f->dynamic(array("field"=>"fecha","value"=>$d["fecha"],"class"=>"automatico"));
 $f->campos['hora']=$f->dynamic(array("field"=>"hora","value"=>$d["hora"],"class"=>"automatico"));
 $f->campos['creador']=$f->dynamic(array("field"=>"creador","value"=>$d["creador"]));
+$f->campos['serializable']=$f->dynamic(array("field"=>"serializable","value"=>$d["serializable"]));
 /** Celdas **/
 $f->celdas["articulo"]=$f->celda("Código del Articulo:",$f->campos['articulo']);
 $f->celdas["codigo"]=$f->celda("Código Contable:",$f->campos['codigo'],"","w40p");
@@ -36,11 +38,12 @@ $f->celdas["referencia"]=$f->celda("Referencia (Lote):",$f->campos['referencia']
 $f->celdas["fecha"]=$f->celda("Fecha:",$f->campos['fecha']);
 $f->celdas["hora"]=$f->celda("Hora:",$f->campos['hora']);
 $f->celdas["creador"]=$f->celda("Creador:",$f->campos['creador']);
+$f->celdas["serializable"]=$f->celda("Serializable:",$f->campos['serializable']);
 /** Filas **/
 $f->fila["pf1"]=$f->fila($f->celdas["articulo"].$f->celdas["fecha"].$f->celdas["hora"]);
 $f->fila["pf2"]=$f->fila($f->celdas["codigo"].$f->celdas["familia"]);
 $f->fila["pf3"]=$f->fila($f->celdas["nombre"]);
-$f->fila["pf4"]=$f->fila($f->celdas["referencia"]);
+$f->fila["pf4"]=$f->fila($f->celdas["referencia"].$f->celdas["serializable"]);
 /** Compilando **/
 $f->fila["perfil"]=$f->fila["pf1"].$f->fila["pf2"].$f->fila["pf3"].$f->fila["pf4"];
 ?>

@@ -33,6 +33,7 @@ if ($iu->permiso("INVENTARIOS-ARTICULOS-FILTRAR", $v["uid"])) {
 //$tabla->boton('btnPrecios', 'Precios', 'articulo', "MUI.Inventarios_Articulo_Precios", "table_money-add");
 $tabla->columna('cArticulo', 'Articulo', 'codigo', 'string', '100', 'center', 'false');
 $tabla->columna('cDetalles', 'Detalles', 'detalles', 'string', '500', 'left', 'false');
+$tabla->columna('cFecha', 'Medida', 'medida', 'date', '50', 'center', 'false');
 $tabla->columna('cFecha', 'Fecha', 'fecha', 'date', '90', 'center', 'false');
 $tabla->columna('cHora', 'Hora', 'hora', 'string', '90', 'center', 'false');
 $tabla->columna('cEstado', 'Estado', 'estado', 'string', '100', 'center', 'false');

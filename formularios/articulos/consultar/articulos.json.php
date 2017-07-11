@@ -57,7 +57,7 @@ $sql = ""
 $consulta = $db->sql_query($sql);
 $ret = array();
 while ($fila = $db->sql_fetchrow($consulta)) {
-    $fila['detalles'] = $fila['nombre'] . " <i>" . $fila['codigo'] . "</i>";
+    $fila['detalles'] = htmlentities(urldecode($fila['nombre'])) . " <i>" . $fila['codigo'] . "</i>";
     if($fila["estado"]=="ACTIVO"){
         $fila["estado"]="<span class=\"estado-exitoso\">ACT</span>";
     }else{

@@ -27,5 +27,6 @@ require_once($RMI."librerias/Inventarios_Permisos.class.php");
 require_once($RMI."librerias/Inventarios_Usuario_Perfil.class.php");
 require_once($RMI."librerias/Inventarios_Usuario.class.php");
 require_once($RMI."librerias/Inventarios_Usuarios.class.php");
+require_once($RMI."librerias/Inventarios_Vencimientos.class.php");
 require_once($RMI."librerias/Inventarios.class.php");
 ?>
